@@ -13,6 +13,8 @@ return {
 
   { "mg979/vim-visual-multi", event = "VeryLazy" },
 
+  { "github/copilot.vim", event = "VeryLazy" },
+
   { "windwp/nvim-ts-autotag",
     autotag = {
       enable = true

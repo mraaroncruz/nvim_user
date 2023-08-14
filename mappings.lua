@@ -33,7 +33,7 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["<C-p>"] = { function() require("telescope.builtin").find_files() end, desc = "Find files" },
-    [",,"] = { "<C-^>" }
+    [",,"] = { "<C-^>" },
   },
   t = {
     -- setting a mapping to false will disable it
