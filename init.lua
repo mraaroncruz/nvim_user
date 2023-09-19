@@ -18,7 +18,10 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "rose-pine-moon",
+
+  -- Dealing with cursor colors and kitty
+  vim.api.nvim_command "set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -69,6 +72,17 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    vim.api.nvim_create_autocmd("InsertEnter", {
+      desc = "disable paste",
+      pattern = "*",
+      command = "set nopaste | echo 'nopaste'",
+    })
+
+    vim.api.nvim_create_autocmd("InsertLeave", {
+      desc = "enable paste",
+      pattern = "*",
+      command = "set paste | echo 'paste'",
+    })
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
@@ -80,6 +94,34 @@ return {
     --   pattern = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
+    -- }
+    -- local lspconfig = require("lspconfig")
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+    --
+    -- lspconfig.tailwindcss.setup({
+    --   capabilities = capabilities,
+    --   filetypes = { "html", "elixir", "eelixir", "heex" },
+    --   init_options = {
+    --     userLanguages = {
+    --       elixir = "html-eex",
+    --       eelixir = "html-eex",
+    --       heex = "html-eex",
+    --     },
+    --   },
+    --   settings = {
+    --     tailwindCSS = {
+    --       experimental = {
+    --         classRegex = {
+    --           'class[:]\\s*"([^"]*)"',
+    --         },
+    --       },
+    --     },
+    --   },
+    -- })
+    --
+    -- lspconfig.emmet_ls.setup({
+    --   capabilities = capabilities,
+    --   filetypes = { "html", "css", "elixir", "eelixir", "heex" },
     -- }
   end,
 }

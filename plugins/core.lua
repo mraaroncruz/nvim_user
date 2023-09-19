@@ -33,6 +33,7 @@ return {
   --     luasnip.filetype_extend("javascript", { "javascriptreact" })
   --   end,
   -- },
+  --
   -- {
   --   "windwp/nvim-autopairs",
   --   config = function(plugin, opts)
