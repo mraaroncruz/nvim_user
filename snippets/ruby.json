@@ -1,0 +1,16 @@
+{
+	"new describe style":  {
+		"prefix": "des",
+		"body": [
+			"require \"rails_helper\"",
+			"",
+			"RSpec.describe ${1:Some::Constant}, type: :${2:context} do",
+			"  subject { ${1:Some::Constant} }",
+			"",
+			"  it \"${3:does something}\" do",
+			"  end",
+			"end",
+			""
+		]
+	}
+}

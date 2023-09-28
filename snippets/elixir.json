@@ -1,0 +1,119 @@
+{
+  "GenServer": {
+    "prefix": "gserver",
+    "body": [
+      "defmodule ${RELATIVE_FILEPATH/^([^\\/\\\\]+[\\/\\\\])|(\\.ex|\\.exs)$|([^._\\/\\\\]+)|_|([\\/\\\\])/${3:/capitalize}${4:+.}/g} do",
+      "\tuse GenServer",
+      "",
+      "\tdef start_link(${1:init_args}) do",
+      "\t\t# you may want to register your server with `name: __MODULE__`",
+      "\t\t# as a third argument to `start_link`",
+      "\t\tGenServer.start_link(__MODULE__, [${1:init_args}])",
+      "\tend",
+      "",
+      "\tdef init(_args) do",
+      "\t\t{:ok, :initial_state}",
+      "\tend",
+      "end"
+    ],
+    "description": "Genserver"
+  },
+  "Supervisor": {
+    "prefix": "super",
+    "body": [
+      "defmodule ${RELATIVE_FILEPATH/^([^\\/\\\\]+[\\/\\\\])|(\\.ex|\\.exs)$|([^._\\/\\\\]+)|_|([\\/\\\\])/${3:/capitalize}${4:+.}/g} do",
+      "\tuse Supervisor",
+      "\tdef start_link(args) do",
+      "\t\tSupervisor.start_link(__MODULE__, [args], name: __MODULE__)",
+      "\tend",
+      "",
+      "\tdef init([args]) do",
+      "\t\tchildren = []",
+      "",
+      "\t\tSupervisor.init(children, strategy: :one_for_one)",
+      "\tend",
+      "end"
+    ]
+  },
+  "IEx console": {
+    "prefix": "pry",
+    "body": ["require IEx", "IEx.pry"],
+    "description": "Open an IEx console"
+  },
+  "IO.inspect": {
+    "prefix": "ioi",
+    "body": [
+      "IO.inspect($1, label: \"$1\", pretty: true, limit: :infinity, printable_limit: :infinity)"
+    ]
+  },
+  "Logger.warn": {
+    "prefix": "warn",
+    "body": [
+      "require Logger",
+      "Logger.warn(\"=========== $1:\\n #{inspect $1}\")"
+    ]
+  },
+  "__MODULE__": {
+    "prefix": "mod",
+    "body": ["__MODULE__"]
+  },
+  "%__MODULE__{}": {
+    "prefix": ["%mod", "pmod"],
+    "body": ["%__MODULE__{$1}"]
+  },
+  "func with @spec": {
+    "prefix": "spec",
+    "body": ["@spec $1($2)", "def $1() do", "end"]
+  },
+  "@doc and @spec": {
+    "prefix": "dspec",
+    "body": ["@doc \"\"\"", "\"\"\"", "@spec $1($2)"]
+  },
+  "func with @doc and @spec": {
+    "prefix": "docfunc",
+    "body": ["@doc \"\"\"", "\"\"\"", "@spec $1($2)", "def $1() do", "end"]
+  },
+  "absinthe object": {
+    "prefix": "object",
+    "body": ["object :$1 do", "  field :$2, :$3", "end"]
+  },
+  "absinthe object field": {
+    "prefix": "field",
+    "body": ["field :$1, :${2:string}"]
+  },
+  "call": {
+    "prefix": "call",
+    "body": ["GenServer.call($1, $2)"]
+  },
+  "handle_call": {
+    "prefix": "handle_call",
+    "body": [
+      "@impl true",
+      "def handle_call($1, _from, ${2:state}) do",
+      "  {:reply, whatever, state}",
+      "end"
+    ]
+  },
+  "cast": {
+    "prefix": "cast",
+    "body": ["GenServer.cast($1, $2)"]
+  },
+  "handle_cast": {
+    "prefix": "handle_cast",
+    "body": [
+      "@impl true",
+      "def handle_cast($1, ${2:state}) do",
+      "  {:noreply, ${2:state}}",
+      "end"
+    ]
+  },
+  "handle_info": {
+    "prefix": "handle_info",
+    "body": [
+      "@impl true",
+      "def handle_info($1, ${2:state}) do",
+      "  {:noreply, ${2:state}}",
+      "end"
+    ]
+  }
+}
