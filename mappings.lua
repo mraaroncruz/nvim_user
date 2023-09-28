@@ -30,6 +30,7 @@ return {
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
+    ["<leader>tt"] = { ":TermExec size=80 direction=vertical cmd=\"mix-test-watch %\"<CR>", desc = "Test watch current file"},
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["<C-p>"] = { function() require("telescope.builtin").find_files() end, desc = "Find files" },
