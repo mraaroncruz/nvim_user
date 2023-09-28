@@ -1,0 +1,38 @@
+{
+  "name": "user snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "elixir",
+        "path": "./elixir.json"
+      },
+      {
+        "language": "eruby",
+        "path": "./erb.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "python",
+        "path": "./python.json"
+      },
+      {
+        "language": "ruby",
+        "path": "./ruby.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./typescript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./typescriptreact.json"
+      }
+    ]
+  }
+}
