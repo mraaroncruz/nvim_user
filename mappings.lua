@@ -19,6 +19,7 @@ return {
     -- },
 
     -- mappings seen under group name "Buffer"
+		["<C-q>"] = false,
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
@@ -39,5 +40,6 @@ return {
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+		["<C-q>"] = false
   },
 }
