@@ -29,6 +29,13 @@ return {
       }
     end,
   },
+  {
+		"tveskag/nvim-blame-line",
+		event = "VeryLazy",
+		keys = {
+		  {"<leader>B", ":ToggleBlameLine<CR>", desc = "Toggle BlameLine"}
+		},
+  },
 
   -- {
   --   "elixir-tools/elixir-tools.nvim",
