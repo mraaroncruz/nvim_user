@@ -35,6 +35,7 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     ["<C-p>"] = { function() require("telescope.builtin").find_files() end, desc = "Find files" },
+    ["<C-y>"] = { function() require("telescope.builtin").live_grep() end, desc = "Find words" },
     [",,"] = { "<C-^>" },
   },
   t = {
