@@ -111,6 +111,8 @@ return {
     end
   },
 
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, event = "VeryLazy" },
+
   {
     "drewtempelmeyer/palenight.vim",
     as = "palenight",
