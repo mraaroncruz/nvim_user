@@ -32,6 +32,8 @@ return {
   lsp = {
     -- customize lsp formatting options
     formatting = {
+			-- Never request typescript-language-server for formatting
+      filter = function(client) return client.name ~= "tsserver" end,
       -- control auto formatting on save
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
@@ -83,6 +85,7 @@ return {
       pattern = "*",
       command = "set paste | echo 'paste'",
     })
+
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
