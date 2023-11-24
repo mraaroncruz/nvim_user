@@ -34,6 +34,7 @@ return {
       "bash",
       "css",
       "elixir",
+      "eex",
       "heex",
       "html",
       "javascript",
