@@ -13,7 +13,13 @@ return {
 
   { "mg979/vim-visual-multi", event = "VeryLazy" },
 
-  { "github/copilot.vim", event = "InsertEnter"},
+  {
+    "github/copilot.vim",
+    event = "InsertEnter",
+    on_attach = function(_, _)
+      vim.keymap.set("i", "<C-i>", 'copilot#Accept("<CR>")', { buffer = true, noremap = true })
+    end,
+  },
 
   {
     "L3MON4D3/LuaSnip",
@@ -25,16 +31,16 @@ return {
         -- this can be used if your configuration lives in ~/.config/nvim
         -- if your configuration lives in ~/.config/astronvim, the full path
         -- must be specified in the next line
-        paths = { "./lua/user/snippets" }
+        paths = { "./lua/user/snippets" },
       }
     end,
   },
   {
-		"tveskag/nvim-blame-line",
-		event = "VeryLazy",
-		keys = {
-		  {"<leader>B", ":ToggleBlameLine<CR>", desc = "Toggle BlameLine"}
-		},
+    "tveskag/nvim-blame-line",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>B", ":ToggleBlameLine<CR>", desc = "Toggle BlameLine" },
+    },
   },
 
   -- {
@@ -88,36 +94,29 @@ return {
   --   end,
   -- },
 
-  { "windwp/nvim-ts-autotag",
-    autotag = {
-      enable = true
-    }
-  },
+  { "windwp/nvim-ts-autotag", autotag = {
+    enable = true,
+  } },
 
   {
     "rose-pine/neovim",
     as = "rose-pine",
-    config = function()
-      vim.cmd("colorscheme rose-pine")
-    end,
-    event = "VeryLazy"
+    config = function() vim.cmd "colorscheme rose-pine" end,
+    event = "VeryLazy",
   },
 
-  { "folke/tokyonight.nvim", 
+  {
+    "folke/tokyonight.nvim",
     lazy = false,
     as = "tokyonight",
-    config = function()
-      vim.cmd("colorscheme tokyonight")
-    end
+    config = function() vim.cmd "colorscheme tokyonight" end,
   },
 
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, event = "VeryLazy" },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000, event = "VeryLazy" },
 
   {
     "drewtempelmeyer/palenight.vim",
     as = "palenight",
-    config = function()
-      vim.cmd("colorscheme palenight")
-    end
-  }
+    config = function() vim.cmd "colorscheme palenight" end,
+  },
 }
