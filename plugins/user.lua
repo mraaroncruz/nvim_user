@@ -13,12 +13,43 @@ return {
 
   { "mg979/vim-visual-multi", event = "VeryLazy" },
 
-  {
-    "github/copilot.vim",
-    event = "InsertEnter",
-    on_attach = function(_, _)
-      vim.keymap.set("i", "<C-i>", 'copilot#Accept("<CR>")', { buffer = true, noremap = true })
-    end,
+  -- { -- override nvim-cmp plugin
+  --   "hrsh7th/nvim-cmp",
+  --   -- override the options table that is used in the `require("cmp").setup()` call
+  --   opts = function(_, opts)
+  --     -- opts parameter is the default options table
+  --     -- the function is lazy loaded so cmp is able to be required
+  --     local cmp = require "cmp"
+  --     -- modify the mapping part of the table
+  --     opts.mapping["<C-p>"] = cmp.complete()
+  --
+  --     opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
+  --       fallback()
+  --     end, {"i", "s"})
+  --
+  --     -- return the new table to be used
+  --     return opts
+  --   end,
+  -- },
+
+  -- {
+  --   "github/copilot.vim",
+  --   event = "InsertEnter",
+  --   on_attach = function(_, _)
+  --     vim.keymap.set("i", "<C-i>", 'copilot#Accept("<CR>")', { buffer = true, noremap = true })
+  --   end,
+  -- },
+ {
+    "github/copilot.vim", 
+    lazy = false,
+    config = function()
+      -- Mapping tab is already used by NvChad
+      vim.g.copilot_no_tab_map = true;
+      vim.g.copilot_assume_mapped = true;
+      vim.g.copilot_tab_fallback = "";
+      -- The mapping is set to other key, see custom/lua/mappings
+      -- or run <leader>ch to see copilot mapping section
+    end
   },
 
   {

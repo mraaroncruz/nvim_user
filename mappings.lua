@@ -43,4 +43,17 @@ return {
     -- ["<esc>"] = false,
 		["<C-q>"] = false
   },
+  i = {
+    ["<C-l>"] = {
+      function()
+        vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
+      end,
+      desc="Copilot Accept",
+      replace_keycodes = true,
+      nowait=true,
+      silent=true,
+      expr=true,
+      noremap=true
+    }
+  }
 }
