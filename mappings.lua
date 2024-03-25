@@ -19,7 +19,11 @@ return {
     -- },
 
     -- mappings seen under group name "Buffer"
-		["<C-q>"] = false,
+    ["<M-Left>"] = {function() require('smart-splits').resize_left() end, desc = "Resize left"},
+    ["<M-Down>"] = {function() require('smart-splits').resize_down() end, desc = "Resize down"},
+    ["<M-Up>"] = {function() require('smart-splits').resize_up() end, desc = "Resize up"},
+    ["<M-Right>"] = {function() require('smart-splits').resize_right() end, desc = "Resize right"},
+    ["<C-q>"] = false,
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
