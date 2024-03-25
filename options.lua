@@ -14,6 +14,7 @@ return {
     tabstop = 2,
     wrap = true, -- sets vim.opt.wrap
     shiftwidth = 2,
+		formatoptions = "tcroql", -- Add comments on new lines and probably other stuff
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
