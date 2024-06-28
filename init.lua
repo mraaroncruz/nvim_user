@@ -86,6 +86,12 @@ return {
       command = "set paste | echo 'paste'",
     })
 
+    vim.api.nvim_create_autocmd("InsertEnter", {
+      desc = "set yaml options",
+      pattern = "*",
+      command = "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab",
+    })
+
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {

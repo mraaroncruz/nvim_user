@@ -45,7 +45,18 @@ return {
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
-		["<C-q>"] = false
+		["<C-q>"] = { function() require("notify").dismiss({ silent = true }) end, desc = "Dismiss notification" },
+    ["<C-l>"] = {
+      function()
+        vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
+      end,
+      desc="Copilot Accept",
+      replace_keycodes = true,
+      nowait=true,
+      silent=true,
+      expr=true,
+      noremap=true
+    }
   },
   i = {
     ["<C-l>"] = {
