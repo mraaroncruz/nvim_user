@@ -2,7 +2,7 @@
 return {
   opt = {
     -- set to true or false etc.
-    colorcolumn = "88",
+    colorcolumn = "80,88",
     -- don't be forced to confirm every buffer load
     cmdheight = 1,
     expandtab = true,

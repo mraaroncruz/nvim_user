@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "rose-pine-moon",
+  colorscheme = "catppuccin-latte", -- Initial theme, vim-lumen will handle switching
 
   -- Dealing with cursor colors and kitty
   vim.api.nvim_command "set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50",
