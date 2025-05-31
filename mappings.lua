@@ -83,6 +83,10 @@ return {
             end,
             desc = "Find words"
         },
+        ["<leader>lc"] = {
+            ":ClaudeCode<CR>",
+            desc = "Toggle Claude Code"
+        },
         [",,"] = {"<C-^>"}
     },
     t = {
