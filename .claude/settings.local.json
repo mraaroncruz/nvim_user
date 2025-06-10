@@ -3,7 +3,8 @@
     "allow": [
       "Bash(nvim:*)",
       "Bash(rg:*)",
-      "Bash(gsettings get:*)"
+      "Bash(gsettings get:*)",
+      "Bash(ls:*)"
     ],
     "deny": []
   },

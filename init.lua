@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  -- colorscheme = "catppuccin-latte", -- Commented out - vim-lumen will handle theme detection and switching
+  colorscheme = "catppuccin", -- Base catppuccin, vim-lumen will handle the specific variant
 
   -- Dealing with cursor colors and kitty
   vim.api.nvim_command "set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50",
@@ -75,6 +75,25 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    -- Check system theme on startup
+    vim.defer_fn(function()
+      -- Try to detect system theme using common methods
+      local handle = io.popen("gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null || defaults read -g AppleInterfaceStyle 2>/dev/null || echo 'dark'")
+      if handle then
+        local result = handle:read("*a")
+        handle:close()
+        
+        -- Check if system is in light mode
+        if result:match("light") or (not result:match("dark") and not result:match("Dark")) then
+          vim.o.background = "light"
+          vim.cmd("colorscheme catppuccin-latte")
+        else
+          vim.o.background = "dark"
+          vim.cmd("colorscheme catppuccin-frappe")
+        end
+      end
+    end, 100)
+    
     vim.api.nvim_create_autocmd("InsertEnter", {
       desc = "disable paste",
       pattern = "*",
