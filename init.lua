@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "catppuccin-latte", -- Initial theme, vim-lumen will handle switching
+  -- colorscheme = "catppuccin-latte", -- Commented out - vim-lumen will handle theme detection and switching
 
   -- Dealing with cursor colors and kitty
   vim.api.nvim_command "set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50",
@@ -55,6 +55,7 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
+      "tsserver"
       -- "pyright"
     },
   },

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nvim:*)",
+      "Bash(rg:*)",
+      "Bash(gsettings get:*)"
+    ],
+    "deny": []
+  },
+  "enableAllProjectMcpServers": false
+}

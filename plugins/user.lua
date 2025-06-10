@@ -152,6 +152,15 @@ return { -- You can also add new plugins here as well:
     priority = 1001, -- Higher than catppuccin
     dependencies = {"catppuccin/nvim"}, -- Ensure Catppuccin loads first
     config = function()
+        -- Configure catppuccin before vim-lumen uses it
+        require("catppuccin").setup {
+            flavour = "frappe",
+            background = {
+                light = "latte",
+                dark = "frappe"
+            },
+            term_colors = true
+        }
         vim.g.lumen_light_colorscheme = "catppuccin-latte"
         vim.g.lumen_dark_colorscheme = "catppuccin-frappe"
     end
@@ -159,28 +168,8 @@ return { -- You can also add new plugins here as well:
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-    event = "VeryLazy",
-    opts = {
-        flavour = "frappe"
-    },
-    config = function()
-        vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
-        require("catppuccin").setup {
-            background = {
-                light = "latte",
-                dark = "frappe"
-            },
-            -- transparent_background = true,
-            term_colors = true
-            -- styles = {
-            --   comments = { "italic" },
-            --   functions = { "italic" },
-            --   keywords = { "italic" },
-            --   variables = { "italic" },
-            -- },
-        }
-        -- vim.cmd [[colorscheme catppuccin]] -- Commented out for vim-lumen
-    end
+    lazy = false
+    -- Config moved to vim-lumen to ensure proper initialization order
 }, {
     "drewtempelmeyer/palenight.vim",
     as = "palenight",

@@ -55,7 +55,7 @@ return {
         -- tables with the `name` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<leader>b"] = {
-            name = "Buffers"
+            group = "Buffers"
         },
         ["<leader>bf"] = {
             "<C-w>_",

@@ -64,15 +64,15 @@ return {
   --   end,
   -- },
   -- By adding to the which-key config and using our helper function you can add more which-key registered bindings
-  -- {
-  --   "folke/which-key.nvim",
-  --   config = function(plugin, opts)
-  --     require "plugins.configs.which-key"(plugin, opts) -- include the default astronvim config that calls the setup call
-  --     -- Add bindings which show up as group name
-  --     local wk = require "which-key"
-  --     wk.register({
-  --       b = { name = "Buffer" },
-  --     }, { mode = "n", prefix = "<leader>" })
-  --   end,
-  -- },
+  {
+    "folke/which-key.nvim",
+    opts = function(plugin, opts)
+      opts = opts or {}
+      -- Disable legacy spec warnings
+      opts.notify = false
+      -- Use new spec format
+      opts.spec = opts.spec or {}
+      return opts
+    end,
+  },
 }
